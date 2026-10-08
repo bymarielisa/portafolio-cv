@@ -227,6 +227,16 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
 .kpis div{font-size:.9rem;color:var(--muted)}.kpis b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.4rem;color:var(--plum)}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* Quitar animaciones: nada se mueve, nada se gira, nada hace zoom */
+html.reduce-motion{scroll-behavior:auto}
+.reduce-motion *,.reduce-motion *::before,.reduce-motion *::after{animation:none!important;transition:none!important}
+.reduce-motion .work:hover .thumb img{transform:none}
+.reduce-motion .badge .inner,.reduce-motion .badge:hover .inner,.reduce-motion .badge.flipped .inner{transform:none!important}
+.reduce-motion .badge .side.back{transform:none;display:none}
+.reduce-motion .badge.flipped .side.front{display:none}
+.reduce-motion .badge.flipped .side.back{display:flex}
+.reduce-motion .timeline::before{background:var(--plum)}
+.a11y-status{font-size:.85rem;color:var(--plum);font-weight:700;min-height:1.2em}
 </style>
 
 </head>
@@ -252,6 +262,7 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
         <button class="toggle" id="btn-listen" type="button" aria-pressed="false"><span>Escuchar la sección en pantalla</span><span class="sw" aria-hidden="true"></span></button>
         <button class="toggle" id="btn-text" type="button" aria-pressed="false"><span>Texto más grande</span><span class="sw" aria-hidden="true"></span></button>
         <button class="toggle" id="btn-motion" type="button" aria-pressed="false"><span>Quitar animaciones</span><span class="sw" aria-hidden="true"></span></button>
+        <p class="a11y-status" id="a11y-status" role="status" aria-live="polite"></p>
         <p>La web también funciona con teclado y lector de pantalla.</p>
       </div>
     </div>
@@ -303,7 +314,7 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
             <span class="dl">
               <span class="row"><span class="dt">Experiencia</span><span class="dd">+8 años en comunicación y marketing</span></span>
               <span class="row"><span class="dt">Formación</span><span class="dd">Comunicación Social, mención Audiovisual</span></span>
-              <span class="row"><span class="dt">Diseño</span><span class="dd">Canva avanzado · maquetación</span></span>
+              <span class="row"><span class="dt">Diseño</span><span class="dd">Canva avanzado · Illustrator</span></span>
               <span class="row"><span class="dt">Vídeo</span><span class="dd">CapCut · Canva · Premiere básico</span></span>
               <span class="row"><span class="dt">Web y email</span><span class="dd">WordPress · Odoo · HubSpot</span></span>
               <span class="row"><span class="dt">IA</span><span class="dd">Claude Code · Lovable · Make</span></span>
@@ -345,6 +356,14 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
         <p class="mine">Invitación con QR, posts, banners y cabecera de email.</p>
         <button class="btn open" type="button" data-open="ciclicas">Ver proyecto</button>
       </article>
+      <article class="work" data-cat="diseno campana">
+        <div class="thumb"><img src="assets/infografia-1.jpg" alt="" loading="lazy" style="object-position:center"></div>
+        <span class="kind">Infografía · Redes</span>
+        <h3>Infografías de impacto de la comunidad</h3>
+        <p>Carrusel de 6 láminas con los resultados de la comunidad de Impact Hub Madrid: perfil, ODS, crecimiento, conexión, inspiración e impulso.</p>
+        <p class="mine">Diseño en Illustrator: datos convertidos en gráficos e iconos.</p>
+        <button class="btn open" type="button" data-open="infografia">Ver proyecto</button>
+      </article>
       <article class="work" data-cat="audiovisual campana">
         <div class="thumb"><img src="assets/reel_lazzetta_poster.jpg" alt="" loading="lazy" style="object-position:50% 30%"></div>
         <span class="kind">Audiovisual · 8M</span>
@@ -360,14 +379,6 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
         <p>Dossieres de puestos fijos y bonos de coworking, en español y en inglés.</p>
         <p class="mine">Diseño y maquetación de las dos versiones.</p>
         <button class="btn open" type="button" data-open="dossieres">Ver proyecto</button>
-      </article>
-      <article class="work" data-cat="diseno campana">
-        <div class="thumb"><img src="assets/infografia-1.jpg" alt="" loading="lazy" style="object-position:center"></div>
-        <span class="kind">Infografía · Redes</span>
-        <h3>Infografías de impacto de la comunidad</h3>
-        <p>Carrusel de 6 láminas con los resultados de la comunidad de Impact Hub Madrid: perfil, ODS, crecimiento, conexión, inspiración e impulso.</p>
-        <p class="mine">Diseño de las infografías: datos convertidos en gráficos e iconos.</p>
-        <button class="btn open" type="button" data-open="infografia">Ver proyecto</button>
       </article>
       <article class="work" data-cat="diseno">
         <div class="thumb"><img src="assets/brandbook-01.jpg" alt="" loading="lazy"></div>
@@ -654,7 +665,7 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
   }));
 
   /* ---------- Tabla periódica ---------- */
-  const T=[['Cv','Canva','dis'],['Ci','Canva IA','dis'],['Mq','Maquetación','dis'],['If','Infografías','dis'],
+  const T=[['Ai','Illustrator','dis'],['Cv','Canva','dis'],['Ci','Canva IA','dis'],['Mq','Maquetación','dis'],['If','Infografías','dis'],
     ['Cc','CapCut','av'],['Cn','Canva vídeo','av'],['Pr','Premiere Pro','av'],['Ft','Fotografía','av'],['Sb','Subtitulado','av'],
     ['Ig','Instagram','rs'],['Tk','TikTok','rs'],['Li','LinkedIn','rs'],['Fb','Facebook','rs'],['X','X','rs'],['Mb','Meta Business Suite','rs'],['Mt','Metricool','rs'],['Ht','Hootsuite','rs'],['Bf','Buffer','rs'],['Ga','Google Analytics 4','rs'],['Ls','Looker Studio','rs'],['Ad','Google Ads','rs'],['Ma','Meta Ads','rs'],
     ['Wp','WordPress','web'],['El','Elementor','web'],['Wm','WPML','web'],['Od','Odoo Email Marketing','web'],['Hs','HubSpot','web'],['Gt','Tag Manager','web'],['Gf','Gravity Forms','web'],
@@ -686,7 +697,9 @@ dialog::backdrop{background:rgb(20 10 18 / .72)}
 
   /* ---------- Accesibilidad: texto grande, sin animaciones ---------- */
   const root=document.documentElement;
-  function toggle(btn,cls,key){const on=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',on);root.classList.toggle(cls,on);store.set(key,on?'1':'0');prog&&prog();}
+  function toggle(btn,cls,key){const on=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',on);root.classList.toggle(cls,on);store.set(key,on?'1':'0');prog&&prog();
+    const msg={'reduce-motion':on?'Animaciones desactivadas: nada se mueve ni se gira.':'Animaciones activadas.','big-text':on?'Texto más grande activado.':'Tamaño de texto normal.'}[cls];
+    const st=document.getElementById('a11y-status');if(st)st.textContent=msg;}
   const bt=$('#btn-text'),bm=$('#btn-motion');
   bt.onclick=()=>toggle(bt,'big-text','pf-big');bm.onclick=()=>toggle(bm,'reduce-motion','pf-motion');
   if(store.get('pf-big')==='1'){bt.setAttribute('aria-pressed','true');root.classList.add('big-text')}
