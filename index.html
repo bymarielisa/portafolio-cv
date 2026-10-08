@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="Marielisa González · Comunicación, diseño y vídeo">
+<meta property="og:description" content="Portfolio: diseño y maquetación, campañas, vídeo, web, newsletter e IA aplicada.">
+<meta property="og:image" content="assets/foto-hero.jpg">
+<script data-goatcounter="https://marielisa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<title>Marielisa González · Portfolio</title>
+<meta name="description" content="Portfolio de Marielisa González: comunicación, diseño y marketing digital con propósito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Great+Vibes&display=swap">
+<style>
+/* Layout: minimal. Cabecera con el gris de la foto, secciones sobrias en una columna centrada.
+   Una sola familia de titulares (Fraunces), cuerpo Atkinson Hyperlegible, datos en mono (tarjeta y cifras). */
+:root{
+  --bg:#F7F4F5; --surface:#FFFFFF; --surface-2:#EFE8EB; --fg:#251C22; --muted:#625560;
+  --plum:#5E2750; --plum-ink:#4A1D3F; --rose:#8F6658; --line:#E2D7DC; --on-plum:#FFFFFF; --focus:#C2185B;
+  --hero-bg:#D2D1D6; --hero-fg:#231B21; --hero-muted:#4C434A;
+  --f-display:'Fraunces',Georgia,serif;
+  --f-body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+  --f-sign:'Great Vibes','Brush Script MT',cursive;
+  --maxw:1080px; color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#19141A;--surface:#221B22;--surface-2:#2D232B;--fg:#F2EAEF;--muted:#BFAFB9;--plum:#D9A2CB;--plum-ink:#E9BDDD;
+  --rose:#DDB1A3;--line:#3A2F37;--on-plum:#19141A;--focus:#FF8AC0;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#19141A;--surface:#221B22;--surface-2:#2D232B;--fg:#F2EAEF;--muted:#BFAFB9;--plum:#D9A2CB;--plum-ink:#E9BDDD;
+  --rose:#DDB1A3;--line:#3A2F37;--on-plum:#19141A;--focus:#FF8AC0;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html.big-text{font-size:118%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:1.0625rem;line-height:1.6}
+img,video{max-width:100%;display:block}
+a{color:var(--plum)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.15;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.8rem,3.6vw,2.5rem)}
+h3{font-size:1.2rem;font-weight:500}
+p{margin:0}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;background:var(--plum);color:var(--on-plum);padding:10px 16px;border-radius:8px;z-index:60;text-decoration:none;font-weight:700}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 10px)}
+
+/* Botones */
+.btn{font:inherit;font-weight:700;font-size:.98rem;text-decoration:none;border-radius:999px;padding:11px 22px;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;border:1.5px solid var(--plum);background:transparent;color:var(--plum);white-space:nowrap}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--plum);color:var(--on-plum)}
+.btn.primary:hover{background:var(--plum-ink);border-color:var(--plum-ink)}
+
+/* Barra superior */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{font-family:var(--f-sign);font-size:1.8rem;color:var(--plum);text-decoration:none;line-height:1;flex:none}
+.nav{display:flex;gap:22px;margin-left:auto}
+.nav a{color:var(--fg);text-decoration:none;font-size:.95rem}
+.nav a:hover{color:var(--plum)}
+.a11y-wrap{position:relative;flex:none}
+.a11y-btn{font:inherit;font-size:.9rem;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:999px;padding:6px 12px;cursor:pointer}
+.a11y-btn svg{width:18px;height:18px}
+.a11y-panel{position:absolute;right:0;top:calc(100% + 8px);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;width:260px;box-shadow:0 14px 40px rgb(0 0 0 / .12);display:grid;gap:10px}
+.a11y-panel p{font-size:.85rem;color:var(--muted)}
+.toggle{display:flex;justify-content:space-between;align-items:center;gap:10px;font:inherit;font-size:.95rem;background:none;border:none;color:var(--fg);padding:6px 0;cursor:pointer;text-align:left;width:100%}
+.toggle .sw{width:38px;height:22px;border-radius:999px;background:var(--line);position:relative;flex:none;transition:background .2s}
+.toggle .sw::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--surface);transition:transform .2s}
+.toggle[aria-pressed="true"] .sw{background:var(--plum)}
+.toggle[aria-pressed="true"] .sw::after{transform:translateX(16px)}
+@media (max-width:860px){.nav{display:none}.a11y-wrap{margin-left:auto}}
+
+/* Cabecera: mismo gris que el fondo de la foto, en los dos temas */
+.hero{background:var(--hero-bg);color:var(--hero-fg);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr minmax(260px,420px);align-items:end;gap:24px}
+.hero .hero-copy{padding-block:clamp(48px,9vw,110px);display:grid;gap:22px;align-content:center;align-self:center}
+.hero .who{font-size:1rem;color:var(--hero-muted)}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);max-width:15ch;color:var(--hero-fg)}
+.hero .lede{color:var(--hero-muted);max-width:44ch;font-size:1.1rem}
+.hero .ctas{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn{border-color:#5E2750;color:#5E2750}
+.hero .btn:hover{background:rgb(255 255 255 / .35)}
+.hero .btn.primary{background:#5E2750;color:#fff}
+.hero .btn.primary:hover{background:#4A1D3F}
+.hero .btn:focus-visible{outline-color:#5E2750}
+.hero .photo{align-self:end;margin:0}
+.hero .photo img{width:100%;height:auto;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%),linear-gradient(to bottom,transparent 0,#000 14%);mask-composite:intersect}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero .hero-copy{padding-block:40px 8px}.hero .photo{max-width:340px;justify-self:center}}
+
+/* Secciones */
+section{padding-block:clamp(56px,8vw,96px);scroll-margin-top:72px}
+.sec-head{display:grid;gap:10px;margin-bottom:36px;max-width:62ch}
+.sec-head p{color:var(--muted)}
+.divider{border:0;border-top:1px solid var(--line);margin:0}
+
+/* Sobre mí + tarjeta identificativa */
+.about{display:grid;grid-template-columns:1fr 380px;gap:clamp(28px,6vw,72px);align-items:center}
+.about .text{display:grid;gap:16px;max-width:60ch}
+.about .text p{font-size:1.08rem}
+@media (max-width:860px){.about{grid-template-columns:1fr}.badge-area{justify-self:center}}
+.badge-area{display:grid;justify-items:center;gap:12px}
+.lanyard{width:46px;height:56px;position:relative}
+.lanyard::before{content:"";position:absolute;left:50%;top:0;width:18px;height:40px;transform:translateX(-50%);background:repeating-linear-gradient(90deg,var(--plum) 0 6px,var(--plum-ink) 6px 12px);border-radius:2px}
+.lanyard::after{content:"";position:absolute;left:50%;bottom:0;width:30px;height:18px;transform:translateX(-50%);border:3px solid #9a9aa2;border-radius:6px;background:transparent}
+.badge{width:min(340px,86vw);aspect-ratio:54/86;perspective:1400px;cursor:pointer;border:none;background:none;padding:0;font:inherit;color:inherit;margin-top:-6px}
+.badge .inner{display:block;position:relative;width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.75,.2,1);transform-style:preserve-3d}
+.badge.flipped .inner,.badge:hover .inner{transform:rotateY(180deg)}
+@media (hover:none){.badge:hover .inner{transform:none}.badge.flipped .inner{transform:rotateY(180deg)}}
+.reduce-motion .badge .inner{transition:none}
+.side{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;background:var(--surface);border:1px solid var(--line);box-shadow:0 18px 40px rgb(40 10 30 / .14);overflow:hidden;display:flex;flex-direction:column;text-align:left}
+.side.back{transform:rotateY(180deg)}
+.slot{display:block;width:56px;height:9px;border-radius:9px;background:var(--bg);border:1px solid var(--line);margin:12px auto 0}
+.side .top{display:flex;justify-content:space-between;padding:12px 18px 0;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.side .ph{display:block;margin:14px 18px 0;border-radius:10px;overflow:hidden;aspect-ratio:4/5;background:var(--surface-2)}
+.side .ph img{width:100%;height:100%;object-fit:cover}
+.side .nm{display:block;padding:14px 18px 0;font-family:var(--f-display);font-size:1.45rem;line-height:1.1}
+.side .rl{display:block;padding:4px 18px 0;color:var(--plum);font-weight:700;font-size:.92rem}
+.side .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding:14px 18px;border-top:1px dashed var(--line);font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+.bars{display:block;height:26px;width:110px;background:repeating-linear-gradient(90deg,var(--fg) 0 2px,transparent 2px 4px,var(--fg) 4px 5px,transparent 5px 8px,var(--fg) 8px 11px,transparent 11px 12px);opacity:.85}
+.side.back .head{background:var(--plum);color:var(--on-plum);padding:16px 18px 14px;display:grid;gap:4px}
+.side.back .head span{display:block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.side.back .head b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.3rem}
+.side.back .dl{display:grid;margin:0;padding:6px 18px;display:grid}
+.side.back .row{display:grid;grid-template-columns:96px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.side.back .dt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.side.back .dd{margin:0;font-size:.9rem;font-weight:700;line-height:1.35}
+.badge-hint{font-size:.85rem;color:var(--muted)}
+
+/* Trabajos */
+.tabs{display:flex;gap:4px 22px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:32px}
+.tab{font:inherit;font-size:.95rem;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);padding:10px 0;margin-bottom:-1px;cursor:pointer}
+.tab:hover{color:var(--fg)}
+.tab[aria-pressed="true"]{color:var(--plum);border-bottom-color:var(--plum);font-weight:700}
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}
+@media (max-width:960px){.works{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.works{grid-template-columns:1fr}}
+.work{display:flex;flex-direction:column;gap:14px;min-width:0}
+.work .thumb{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--surface-2);border:1px solid var(--line)}
+.work .thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s}
+.work:hover .thumb img{transform:scale(1.03)}
+.reduce-motion .work .thumb img{transition:none}
+.work .thumb.type{display:grid;place-items:center;background:var(--plum);color:var(--on-plum);font-family:var(--f-display);font-size:2.6rem}
+.work .thumb.type small{display:block;font-family:var(--f-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;opacity:.85}
+.work .kind{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--rose)}
+.work h3{font-size:1.2rem;min-height:2.3em}
+.work p{color:var(--muted);font-size:.97rem}
+.work .mine{font-size:.9rem;color:var(--fg);border-left:2px solid var(--plum);padding-left:10px}
+.work .open{margin-top:auto;align-self:flex-start}
+
+/* Cifras */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px 28px}
+@media (max-width:860px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{display:grid;gap:4px;align-content:start;border-top:1px solid var(--line);padding-top:16px}
+.stat .n{font-family:var(--f-display);font-size:clamp(1.9rem,3.6vw,2.5rem);color:var(--plum);line-height:1.05;font-variant-numeric:tabular-nums}
+.stat .l{font-weight:700;font-size:.98rem}
+.stat .c{font-size:.86rem;color:var(--muted)}
+
+/* Tabla periódica */
+.legend{display:flex;gap:4px 18px;flex-wrap:wrap;margin-bottom:18px}
+.ptable{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.el{border-radius:10px;padding:9px;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);background:var(--surface);transition:opacity .2s}
+.el .s{font-family:var(--f-display);font-size:1.6rem;line-height:1;color:var(--fam)}
+.el .nm{font-size:.78rem;line-height:1.2;font-weight:700}
+.el{--fam:var(--plum)}
+.el[data-f="dis"]{--fam:#A8406A}.el[data-f="av"]{--fam:#9C5320}.el[data-f="rs"]{--fam:#6A4392}.el[data-f="web"]{--fam:#275F7C}.el[data-f="of"]{--fam:#4C6A41}
+.el[data-f="ia"]{background:var(--plum);border-color:var(--plum);color:var(--on-plum);--fam:var(--on-plum)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .el:not([data-f="ia"]) .s{filter:brightness(1.7) saturate(.8)}}
+:root[data-theme="dark"] .el:not([data-f="ia"]) .s{filter:brightness(1.7) saturate(.8)}
+.el.dim{opacity:.2}
+
+/* Trayectoria */
+.timeline{list-style:none;margin:0;position:relative;display:grid;gap:24px;padding-left:30px;max-width:760px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--plum) var(--prog,100%),var(--line) var(--prog,100%))}
+.ti{position:relative}
+.ti::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--plum)}
+.ti .when{font-family:var(--f-mono);font-size:.78rem;color:var(--rose)}
+.ti h3{font-size:1.1rem;margin-block:2px 4px}
+.ti p{color:var(--muted)}
+.ti.next::before{background:var(--plum)}
+
+/* Compromiso */
+.commit{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+@media (max-width:860px){.commit{grid-template-columns:1fr}}
+.commit article{display:grid;gap:8px;align-content:start}
+.commit p,.commit li{color:var(--muted)}
+.commit ul{margin:4px 0 0;padding-left:18px;display:grid;gap:4px}
+
+/* Contacto */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem)}
+.contact .lead{color:var(--muted);margin-top:14px;max-width:40ch}
+.cline{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cline:first-child{border-top:1px solid var(--line)}
+.cline .k{width:84px;color:var(--muted);font-size:.9rem;font-family:var(--f-mono)}
+.cline .v{font-weight:700;word-break:break-word;min-width:0;flex:1}
+.copy{font:inherit;font-size:.8rem;background:var(--surface-2);border:1px solid var(--line);color:var(--fg);border-radius:999px;padding:3px 10px;cursor:pointer}
+footer{padding-block:28px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+
+/* Diálogo */
+dialog{border:none;border-radius:18px;padding:0;width:min(1100px,calc(100vw - 24px));max-height:calc(100dvh - 24px);background:var(--surface);color:var(--fg);box-shadow:0 30px 80px rgb(0 0 0 / .35)}
+dialog::backdrop{background:rgb(20 10 18 / .72)}
+.dlg{display:grid;grid-template-rows:auto 1fr auto;max-height:calc(100dvh - 24px)}
+.dlg header{display:flex;gap:12px;align-items:start;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+.dlg header h3{font-size:1.25rem}
+.dlg header p{color:var(--muted);font-size:.95rem;margin-top:4px;max-width:70ch}
+.dlg .stage{overflow:auto;background:var(--surface-2);display:grid;place-items:center;padding:16px;min-height:240px}
+.dlg .stage img{max-height:70dvh;width:auto;border-radius:6px;box-shadow:0 4px 18px rgb(0 0 0 / .15)}
+.dlg .stage video{max-height:70dvh;border-radius:8px;background:#000}
+.dlg .stage .scroller{max-height:70dvh;overflow:auto;border-radius:8px;border:1px solid var(--line);background:#fff;width:min(620px,100%)}
+.dlg .stage .scroller img{max-height:none;box-shadow:none;border-radius:0;width:100%}
+.dlg .stage .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
+.dlg .stage .compare figure{margin:0;display:grid;gap:6px}
+.dlg .stage .compare figcaption{font-weight:700;color:var(--plum)}
+@media (max-width:700px){.dlg .stage .compare{grid-template-columns:1fr}}
+.dlg footer{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 18px;border-top:1px solid var(--line);flex-wrap:wrap;font-size:inherit;color:inherit}
+.dlg .cap{font-size:.95rem;color:var(--muted);flex:1;min-width:200px}
+.dlg .cnt{font-variant-numeric:tabular-nums;font-size:.9rem;color:var(--muted)}
+.iconbtn{font:inherit;border:1.5px solid var(--plum);background:transparent;color:var(--plum);border-radius:999px;padding:6px 14px;cursor:pointer;font-weight:700}
+.iconbtn:hover{background:var(--surface-2)}
+.iconbtn:disabled{opacity:.35;cursor:default}
+.kpis{display:flex;gap:18px;flex-wrap:wrap;margin-top:8px}
+.kpis div{font-size:.9rem;color:var(--muted)}.kpis b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.4rem;color:var(--plum)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Marielisa González, ir al inicio">Marielisa</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#cifras">Cifras</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="a11y-wrap">
+      <button class="a11y-btn" id="a11y-btn" type="button" aria-expanded="false" aria-controls="a11y-panel">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="4" r="2"/><path d="M4 7.5 12 9l8-1.5.4 2L15 10.6V14l2.2 7-1.9.6L12.8 15h-1.6l-2.5 6.6-1.9-.6L9 14v-3.4L3.6 9.5z"/></svg>
+        Accesibilidad
+      </button>
+      <div class="a11y-panel" id="a11y-panel" hidden>
+        <button class="toggle" id="btn-listen" type="button" aria-pressed="false"><span>Escuchar la sección en pantalla</span><span class="sw" aria-hidden="true"></span></button>
+        <button class="toggle" id="btn-text" type="button" aria-pressed="false"><span>Texto más grande</span><span class="sw" aria-hidden="true"></span></button>
+        <button class="toggle" id="btn-motion" type="button" aria-pressed="false"><span>Quitar animaciones</span><span class="sw" aria-hidden="true"></span></button>
+        <p>La web también funciona con teclado y lector de pantalla.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<section class="hero" id="inicio" aria-labelledby="h-hero" style="padding-block:0">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="who">Marielisa González · Madrid</p>
+      <h1 id="h-hero">Comunicación, diseño y vídeo con propósito</h1>
+      <p class="lede">Diseño materiales, grabo y edito vídeo, y llevo redes, web y newsletters para organizaciones de impacto social.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#trabajos">Ver trabajos</a>
+        <a class="btn" href="#contacto">Hablemos</a>
+        <a class="btn" href="assets/CV_Marielisa_Gonzalez.pdf" target="_blank" rel="noopener">Descargar CV</a>
+      </div>
+    </div>
+    <figure class="photo">
+      <img src="assets/foto-hero.jpg" width="896" height="1194" alt="Marielisa ríe sentada en una silla roja con el móvil en la mano y un portátil sobre las piernas. Detrás, carteles con frases como «Autenticidad: habla a tu manera» y «Quiet on set… RECORDING».">
+    </figure>
+  </div>
+</section>
+
+<section id="sobre-mi" aria-labelledby="h-about">
+  <div class="wrap about">
+    <div class="text">
+      <h2 id="h-about">Un perfil híbrido: creativo y analítico</h2>
+      <p>Soy licenciada en Comunicación Social con mención Audiovisual. Empecé en la radio en Caracas: producía programas, escribía guiones, llevaba las redes y conseguía patrocinadores.</p>
+      <p>Hoy trabajo en marketing y web en Impact Hub Madrid, en el ecosistema de emprendimiento e impacto social. Diseño dossieres, presentaciones e invitaciones, grabo y edito reels, hago fotos en eventos, monto la newsletter y mantengo las webs en WordPress.</p>
+      <p>Me gusta convertir información compleja en materiales claros, medir qué funciona y usar la IA para quitar trabajo repetitivo al equipo.</p>
+    </div>
+    <div class="badge-area">
+      <div class="lanyard" aria-hidden="true"></div>
+      <button class="badge" id="badge" type="button" aria-pressed="false" aria-label="Tarjeta de identificación de Marielisa. Pulsa para darle la vuelta y ver sus datos clave.">
+        <span class="inner">
+          <span class="side front" id="badge-front">
+            <span class="slot" aria-hidden="true"></span>
+            <span class="top"><span>Acreditación</span><span>ID · MGL-0326</span></span>
+            <span class="ph"><img src="assets/foto-badge.jpg" width="320" height="400" alt="Foto de carnet de Marielisa, con gafas y chaqueta negra."></span>
+            <span class="nm">Marielisa González</span>
+            <span class="rl">Comunicación · Diseño · Marketing</span>
+            <span class="foot"><span>MADRID<br>DEPT. COMUNICACIÓN</span><span class="bars" aria-hidden="true"></span></span>
+          </span>
+          <span class="side back" id="badge-back" aria-hidden="true">
+            <span class="head"><span>Datos clave · MGL-0326</span><b>Marielisa González</b></span>
+            <span class="dl">
+              <span class="row"><span class="dt">Experiencia</span><span class="dd">+8 años en comunicación y marketing</span></span>
+              <span class="row"><span class="dt">Formación</span><span class="dd">Comunicación Social, mención Audiovisual</span></span>
+              <span class="row"><span class="dt">Diseño</span><span class="dd">Canva avanzado · maquetación</span></span>
+              <span class="row"><span class="dt">Vídeo</span><span class="dd">CapCut · Canva · Premiere básico</span></span>
+              <span class="row"><span class="dt">Web y email</span><span class="dd">WordPress · Odoo · HubSpot</span></span>
+              <span class="row"><span class="dt">IA</span><span class="dd">Claude Code · Lovable · Make</span></span>
+              <span class="row"><span class="dt">Idiomas</span><span class="dd">Español nativo · Inglés A2–B1</span></span>
+              <span class="row"><span class="dt">Sector</span><span class="dd">Impacto social y emprendimiento</span></span>
+            </span>
+          </span>
+        </span>
+      </button>
+      <p class="badge-hint" id="badge-hint">Pasa el cursor o pulsa la tarjeta para darle la vuelta.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="trabajos" aria-labelledby="h-works">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-works">Trabajos</h2>
+      <p>Una selección de proyectos. En cada uno indico qué parte hice yo.</p>
+    </div>
+    <div class="tabs" role="group" aria-label="Filtrar proyectos">
+      <button class="tab" type="button" data-filter="all" aria-pressed="true">Todo</button>
+      <button class="tab" type="button" data-filter="diseno" aria-pressed="false">Diseño y maquetación</button>
+      <button class="tab" type="button" data-filter="campana" aria-pressed="false">Campañas</button>
+      <button class="tab" type="button" data-filter="audiovisual" aria-pressed="false">Audiovisual</button>
+      <button class="tab" type="button" data-filter="web" aria-pressed="false">Web y email</button>
+      <button class="tab" type="button" data-filter="ia" aria-pressed="false">IA aplicada</button>
+    </div>
+    <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+
+    <div class="works" id="works">
+      <article class="work" data-cat="campana diseno">
+        <div class="thumb"><img src="assets/ciclicas-post-invitacion.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Campaña · Tercer sector</span>
+        <h3>Evento de Cíclicas</h3>
+        <p>Campaña para la presentación de un informe sobre educación menstrual. Un diseño adaptado a seis formatos.</p>
+        <p class="mine">Invitación con QR, posts, banners y cabecera de email.</p>
+        <button class="btn open" type="button" data-open="ciclicas">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="audiovisual campana">
+        <div class="thumb"><img src="assets/reel_lazzetta_poster.jpg" alt="" loading="lazy" style="object-position:50% 30%"></div>
+        <span class="kind">Audiovisual · 8M</span>
+        <h3>Reel 8M: Sofía Lazzetta</h3>
+        <p>Reel por el Día de la Mujer sobre una fotógrafa y su exposición en Impact Hub Madrid.</p>
+        <p class="mine">Grabación, edición y subtítulos.</p>
+        <button class="btn open" type="button" data-open="reel">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="diseno">
+        <div class="thumb"><img src="assets/dossier-es-01.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Maquetación · ES / EN</span>
+        <h3>Dossieres comerciales bilingües</h3>
+        <p>Dossieres de puestos fijos y bonos de coworking, en español y en inglés.</p>
+        <p class="mine">Diseño y maquetación de las dos versiones.</p>
+        <button class="btn open" type="button" data-open="dossieres">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="diseno">
+        <div class="thumb"><img src="assets/brandbook-01.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Material formativo · Manual</span>
+        <h3>Brandbook interno de Impact Hub Madrid</h3>
+        <p>Manual de 29 páginas para que cualquier persona nueva del equipo aplique la marca: tono de voz, logo, colores, tipografía e iconos.</p>
+        <p class="mine">Recopilación de criterios desde Asana, reglas de diseño con enfoque UX, diseño y maquetación.</p>
+        <button class="btn open" type="button" data-open="brandbook">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="diseno">
+        <div class="thumb"><img src="assets/mentores-1.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Maquetación · Guía</span>
+        <h3>Guía de la Red de Mentores</h3>
+        <p>Guía de beneficios para emprendedores del programa municipal Madrid Emprende.</p>
+        <p class="mine">Diseño y maquetación.</p>
+        <button class="btn open" type="button" data-open="mentores">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="diseno">
+        <div class="thumb"><img src="assets/evento-01.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Presentación · Evento</span>
+        <h3>Presentación «Construyendo marcas»</h3>
+        <p>Presentación de 23 diapositivas para un encuentro de la Red de Mentores.</p>
+        <p class="mine">Diseño y maquetación. Contenido de los ponentes.</p>
+        <button class="btn open" type="button" data-open="evento">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="web diseno">
+        <div class="thumb"><img src="assets/newsletter.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Email · Quincenal</span>
+        <h3>Newsletter de Impact Hub Madrid</h3>
+        <p>Casi 10.000 destinatarios. Último envío: 28,98 % de apertura.</p>
+        <p class="mine">Plantilla, diseño, imágenes, montaje en Odoo y envío.</p>
+        <button class="btn open" type="button" data-open="newsletter">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="audiovisual">
+        <div class="thumb"><img src="assets/evento-desayuno-bcn.jpg" alt="" loading="lazy" style="object-position:center"></div>
+        <span class="kind">Fotografía · Eventos</span>
+        <h3>Fotografía de eventos</h3>
+        <p>Fotos de comunidad para la web y la newsletter.</p>
+        <p class="mine">Fotografía y selección.</p>
+        <button class="btn open" type="button" data-open="fotos">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="diseno campana">
+        <div class="thumb"><img src="assets/sexy-salad-flyer.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Comunidad · Diseño</span>
+        <h3>Sexy Salad · Impact Hub Málaga</h3>
+        <p>Cartel y hoja de inscripción para una comida de verano de la comunidad.</p>
+        <p class="mine">Diseño. Fotos de banco de imágenes.</p>
+        <button class="btn open" type="button" data-open="salad">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="web">
+        <div class="thumb"><img src="assets/bcn-despues-poster.jpg" alt="" loading="lazy"></div>
+        <span class="kind">Web · WordPress</span>
+        <h3>Nueva web de Impact Hub Barcelona</h3>
+        <p>Rediseño completo, más de 20 páginas y versión multidioma. Con antes y después.</p>
+        <p class="mine">Maquetación y desarrollo a partir del diseño.</p>
+        <button class="btn open" type="button" data-open="web">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="campana">
+        <div class="thumb type" aria-hidden="true"><span>6<small>Patrocinadores</small></span></div>
+        <span class="kind">Captación · Radio</span>
+        <h3>Patrocinio para Difusión Latina</h3>
+        <p>Captación de seis marcas patrocinadoras para mi programa en la emisora Difusión Latina 97.7 FM, en Caracas.</p>
+        <p class="mine">Propuestas comerciales y relación con los patrocinadores.</p>
+      </article>
+      <article class="work" data-cat="ia">
+        <div class="thumb"><img src="assets/marco-poster.jpg" alt="" loading="lazy"></div>
+        <span class="kind">IA aplicada · Herramienta interna</span>
+        <h3>Marco</h3>
+        <p>Reúne eventos, menciones en prensa y territorios del ecosistema. Sustituyó media mañana de trabajo manual a la semana.</p>
+        <p class="mine">Idea y desarrollo con Claude Code y Lovable.</p>
+        <button class="btn open" type="button" data-open="marco">Ver proyecto</button>
+      </article>
+      <article class="work" data-cat="ia web">
+        <div class="thumb type" aria-hidden="true"><span>Nico<small>Agente IA</small></span></div>
+        <span class="kind">IA aplicada · En desarrollo</span>
+        <h3>Nico</h3>
+        <p>Agente que prepara los mailings: exporta las piezas de Canva, las guarda en Drive y monta el correo en Odoo.</p>
+        <p class="mine">Diseño del flujo y desarrollo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="cifras" aria-labelledby="h-stats">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-stats">Cifras</h2>
+      <p>Impact Hub Madrid, de enero a septiembre de 2026, salvo que se indique otra cosa.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="n">35.500+</span><span class="l">Seguidores en LinkedIn</span><span class="c">+1.800 de mayo a septiembre. Gestión compartida.</span></div>
+      <div class="stat"><span class="n">40.000</span><span class="l">Cuentas alcanzadas</span><span class="c">Máximo mensual en Instagram.</span></div>
+      <div class="stat"><span class="n">30.000+</span><span class="l">Usuarios en la web</span><span class="c">Más de 44.000 sesiones.</span></div>
+      <div class="stat"><span class="n">1.611</span><span class="l">Leads online</span><span class="c">Formularios, chatbot y otros canales.</span></div>
+      <div class="stat"><span class="n">102</span><span class="l">Leads del chatbot</span><span class="c">Desde que integré Botpress en mayo.</span></div>
+      <div class="stat"><span class="n">28,98 %</span><span class="l">Apertura de la newsletter</span><span class="c">Último envío, a 9.932 personas.</span></div>
+      <div class="stat"><span class="n">≈ 8,50 €</span><span class="l">Coste medio por lead</span><span class="c">Google Ads, Meta y LinkedIn. Creatividades mías.</span></div>
+      <div class="stat"><span class="n">6</span><span class="l">Patrocinadores</span><span class="c">Para mi programa de radio en Caracas.</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="herramientas" aria-labelledby="h-tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="h-tools">Herramientas</h2>
+      <p>Lo que uso a diario, agrupado por familia.</p>
+    </div>
+    <div class="legend tabs" role="group" aria-label="Resaltar una familia de herramientas" style="margin-bottom:22px">
+      <button class="tab" type="button" data-fam="all" aria-pressed="true">Todas</button>
+      <button class="tab" type="button" data-fam="dis" aria-pressed="false">Diseño</button>
+      <button class="tab" type="button" data-fam="av" aria-pressed="false">Vídeo y foto</button>
+      <button class="tab" type="button" data-fam="rs" aria-pressed="false">Redes y analítica</button>
+      <button class="tab" type="button" data-fam="web" aria-pressed="false">Web y CRM</button>
+      <button class="tab" type="button" data-fam="ia" aria-pressed="false">IA</button>
+    </div>
+    <ul class="ptable" id="ptable" aria-label="Herramientas"></ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="trayectoria" aria-labelledby="h-path">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-path">De la radio en Caracas al impacto en Madrid</h2></div>
+    <ol class="timeline" id="timeline">
+      <li class="ti"><span class="when">2012 – 2017</span><h3>Licenciatura en Comunicación Social, mención Audiovisual</h3><p>Universidad Santa María, Caracas.</p></li>
+      <li class="ti"><span class="when">Venezuela</span><h3>Jefa de Atención al Ciudadano y Redes Sociales</h3><p>Alcaldía de Sucre.</p></li>
+      <li class="ti"><span class="when">Venezuela</span><h3>Social Media Manager de artistas</h3><p>MR Medios / Estéreo Marketing.</p></li>
+      <li class="ti"><span class="when">2016 – 2021</span><h3>Productora y marketing digital</h3><p>Difusión Latina 97.7 FM. Guion, redes y 6 patrocinadores.</p></li>
+      <li class="ti"><span class="when">2023</span><h3>Bootcamp de Programación Web</h3><p>Hack a Boss y Powercoders, 251 horas.</p></li>
+      <li class="ti"><span class="when">2023 – hoy</span><h3>Marketing &amp; Web · Impact Hub Madrid</h3><p>Diseño, vídeo, redes, newsletter, WordPress, CRM e IA.</p></li>
+      <li class="ti"><span class="when">2025 – 2026</span><h3>Formación continua</h3><p>ISDI, Digitalent y Weplash Academy (IA agéntica).</p></li>
+      <li class="ti next"><span class="when">Lo siguiente</span><h3>Comunicación con propósito</h3><p>Contenidos claros y accesibles al servicio de una causa social.</p></li>
+    </ol>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="compromiso" aria-labelledby="h-commit">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="h-commit">Comunicar para que nadie se quede fuera</h2></div>
+    <div class="commit">
+      <article><h3>Causas sociales</h3><p>Diseñé la campaña de Cíclicas sobre educación menstrual y trabajo a diario en el ecosistema de impacto social.</p></article>
+      <article><h3>Voluntariado</h3><p>He difundido como voluntaria campañas de donación para causas de Venezuela.</p></article>
+      <article><h3>Accesibilidad</h3><p>Propuse un proyecto de accesibilidad para la web de Impact Hub. Este portfolio lo aplica:</p>
+        <ul><li>Lectura en voz alta</li><li>Teclado y lector de pantalla</li><li>Imágenes descritas</li><li>Nada se mueve solo</li><li>Texto más grande</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section id="contacto" aria-labelledby="h-contact">
+  <div class="wrap contact">
+    <div>
+      <h2 id="h-contact">Hablemos</h2>
+      <p class="lead">Si buscas a alguien que diseñe, grabe y comunique con criterio, escríbeme.</p>
+      <div class="ctas" style="margin-top:22px"><a class="btn primary" href="assets/CV_Marielisa_Gonzalez.pdf" target="_blank" rel="noopener">Descargar CV</a></div>
+    </div>
+    <div>
+      <div class="cline"><span class="k">Email</span><span class="v" id="c-mail">bymarielisa@gmail.com</span><button class="copy" type="button" data-copy="c-mail">Copiar</button></div>
+      <div class="cline"><span class="k">Teléfono</span><span class="v" id="c-tel">+34 624 025 425</span><button class="copy" type="button" data-copy="c-tel">Copiar</button></div>
+      <div class="cline"><span class="k">LinkedIn</span><a class="v" href="https://www.linkedin.com/in/bymarielisa" target="_blank" rel="noopener">linkedin.com/in/bymarielisa</a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">© 2026 Marielisa González · Hecho con criterios de accesibilidad WCAG 2.1 AA · Estadísticas de visitas anónimas y sin cookies (GoatCounter).</div></footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg">
+    <header>
+      <div><h3 id="dlg-title"></h3><p id="dlg-desc"></p><div class="kpis" id="dlg-kpis" hidden></div></div>
+      <button class="iconbtn" type="button" id="dlg-close">Cerrar <span aria-hidden="true">✕</span></button>
+    </header>
+    <div class="stage" id="dlg-stage" aria-live="polite"></div>
+    <footer>
+      <p class="cap" id="dlg-cap"></p>
+      <span class="cnt" id="dlg-cnt"></span>
+      <div style="display:flex;gap:8px">
+        <button class="iconbtn" type="button" id="dlg-prev">← Anterior</button>
+        <button class="iconbtn" type="button" id="dlg-next">Siguiente →</button>
+      </div>
+    </footer>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  /* ---------- Galerías ---------- */
+  const A='assets/';
+  const G={
+    ciclicas:{t:'Campaña de Cíclicas',d:'Evento de presentación del informe sobre educación menstrual y equidad en el distrito Centro de Madrid. Diseño de todas las piezas a partir de una misma línea visual.',items:[
+      {img:'ciclicas-invitacion-a4.jpg',alt:'Invitación A4 en rosa y granate con el logo de Cíclicas, una chica con megáfono, los datos del evento del jueves 4 de junio en Lavapiés y un código QR de inscripción.',cap:'Invitación A4 con QR de inscripción.'},
+      {img:'ciclicas-post-invitacion.jpg',alt:'Post vertical de Instagram con el titular «Invitación, evento presencial» y los datos del evento.',cap:'Post 4:5: invitación.'},
+      {img:'ciclicas-post-asistir.jpg',alt:'Post vertical con la pregunta «¿Te gustaría asistir a un evento de Cíclicas?» y los datos del evento.',cap:'Post 4:5: llamada a la asistencia.'},
+      {img:'ciclicas-post-cuadrado.jpg',alt:'Post cuadrado con la misma composición de la campaña.',cap:'Post 1:1.'},
+      {img:'ciclicas-banner-email.jpg',alt:'Banner horizontal con la invitación al evento, para email y web.',cap:'Cabecera para email.'},
+      {img:'ciclicas-banner-recordatorio.jpg',alt:'Banner horizontal con el texto «Mañana nos encontramos» y la dirección del Espacio La Loseta.',cap:'Recordatorio del día anterior.'}]},
+    reel:{t:'Reel 8M: Sofía Lazzetta',d:'Reel por el Día de la Mujer sobre la fotógrafa Sofía Lazzetta y su exposición en Impact Hub Madrid. Grabación, edición y subtítulos míos.',items:[
+      {video:'reel_lazzetta.mp4',poster:'reel_lazzetta_poster.jpg',label:'Reel vertical de 23 segundos con subtítulos integrados. Sofía Lazzetta habla a cámara con su cámara de fotos, se la ve haciendo un retrato en Impact Hub y presenta su exposición del 9 de marzo.',cap:'Vídeo con sonido y subtítulos integrados. Pulsa reproducir.'}]},
+    dossieres:{t:'Dossieres comerciales bilingües',d:'Puestos fijos (español) y Dedicated Desk (inglés): la misma maqueta en los dos idiomas. Al final, el dossier de bonos de coworking.',items:[]},
+    mentores:{t:'Guía de beneficios de la Red de Mentores',d:'Programa de mentorías de Madrid Emprende. Códigos promocionales y contactos difuminados.',items:[
+      {img:'mentores-1.jpg',alt:'Portada azul con el logo de la Red de Mentores de Madrid Emprende y el mensaje de agradecimiento a los emprendedores.',cap:'Portada.'},
+      {img:'mentores-2.jpg',alt:'Página con los servicios de coaching en inglés de Learning Mindfully y la formación digital GEN-D de ISDI e Impact Hub.',cap:'Coaching en inglés y formación digital.'},
+      {img:'mentores-3.jpg',alt:'Página con los servicios financieros y legales de The Startup CFO y los espacios de trabajo de Impact Hub Madrid.',cap:'Servicios financieros y espacios de trabajo.'},
+      {img:'mentores-4.jpg',alt:'Página con los servicios de traducción de Bravidiom y de branding de IMILLE.',cap:'Traducción y branding.'}]},
+    evento:{t:'Presentación «Construyendo marcas que generan participación y ventas»',d:'Red de Mentores de Madrid Emprende. Diseño y maquetación míos; el contenido es de los ponentes. Selección de diapositivas.',items:[]},
+    newsletter:{t:'Newsletter de Impact Hub Madrid',d:'Envío quincenal. Diseño de plantilla, imágenes, montaje en Odoo, programación y envío. Desplázate dentro del marco para leerla entera.',kpis:[['9.932','destinatarios'],['28,98 %','apertura'],['2,26 %','clics']],items:[
+      {scroll:'newsletter.jpg',alt:'Newsletter completa: noticia principal sobre Compostree y el CIEC, sección Novedades con tres noticias de la comunidad, búsqueda de socios en Burgos, nuevas salas en Alameda, Oportunidades con cuatro convocatorias y Agenda con cuatro eventos.',cap:'Newsletter completa. Usa la rueda, el dedo o las flechas del teclado dentro del marco.'}]},
+    fotos:{t:'Fotografía de eventos',d:'Fotos para la web y la newsletter.',items:[
+      {img:'evento-desayuno-bcn.jpg',alt:'Grupo de personas sonrientes sirviéndose tortilla, fruta y bollería en un desayuno de comunidad en Impact Hub Barcelona.',cap:'Desayuno de comunidad, Impact Hub Barcelona.'},
+      {img:'foto-grabando.jpg',alt:'Marielisa graba con el móvil durante un evento, con una cámara de fotos colgada al hombro.',cap:'Trabajando en un evento: foto y vídeo al mismo tiempo.'}]},
+    salad:{t:'Sexy Salad · Impact Hub Málaga',d:'Comida compartida de verano para la comunidad. Diseño mío; fotos de banco de imágenes.',items:[
+      {img:'sexy-salad-flyer.jpg',alt:'Cartel playero con sombrilla, pelota y fotos de señoras en la playa con gafas de sol. Texto: Sexy Salad, Abuelas veraniegas edition, martes 14 de julio, 14:00 h.',cap:'Cartel del evento.'},
+      {img:'sexy-salad-inscripcion.jpg',alt:'Hoja de inscripción con la misma estética playera y una tabla con las columnas «Coworker» y «Lo que voy a traer».',cap:'Hoja de inscripción para el espacio.'}]},
+    web:{t:'Nueva web de Impact Hub Barcelona',d:'Maquetación y desarrollo en WordPress a partir del diseño. Más de 20 páginas y versión multidioma. Los vídeos no tienen sonido.',items:[
+      {compare:[{video:'bcn-antes-1.mp4',poster:'bcn-antes-1-poster.jpg',label:'Antes: recorrido por la web antigua de Impact Hub Barcelona, con colores amarillo y verde y bloques de texto densos.',cap:'Antes'},{video:'bcn-despues.mp4',poster:'bcn-despues-poster.jpg',label:'Después: recorrido por la nueva web, con fotos grandes de la comunidad, tarjetas de servicios y formulario de contacto.',cap:'Después'}],cap:'Recorrido en vídeo por la web antigua y la nueva.'},
+      {img:'bcn-home.jpg',alt:'Captura completa de la nueva página de inicio de Impact Hub Barcelona.',cap:'Inicio.'},
+      {img:'bcn-coworking.jpg',alt:'Captura completa de la página de coworking con las membresías y sus precios.',cap:'Coworking y membresías.'},
+      {img:'bcn-espacios.jpg',alt:'Captura completa de la página de espacios para eventos: La Terraza, Planta 0, Sótano, Catedral 0 y Àngel 8.',cap:'Espacios para eventos.'},
+      {img:'bcn-comunidad.jpg',alt:'Captura completa de la página de comunidad con newsletter, blog y programa de hosting.',cap:'Comunidad.'},
+      {img:'bcn-proyectos.jpg',alt:'Captura completa de la página de proyectos con las áreas de emprendimiento, ecosistemas regenerativos e impacto social.',cap:'Proyectos.'},
+      {img:'bcn-about.jpg',alt:'Captura completa de la página About con los principios, el manifiesto y el mapa de la red global.',cap:'About.'},
+      {img:'bcn-terraza.jpg',alt:'Bloque de la web para la Terraza Àngel, con vistas a la ciudad y capacidad para 40 personas.',cap:'Detalle: bloque de un espacio.'}]},
+    brandbook:{t:'Brandbook interno de Impact Hub Madrid',d:'Manual de marca para el equipo, septiembre de 2026. Selección de páginas.',items:[]},
+    marco:{t:'Marco · rastreador del ecosistema de impacto',d:'Herramienta interna creada con Claude Code y Lovable. El vídeo no tiene sonido.',items:[
+      {video:'marco.mp4',poster:'marco-poster.jpg',label:'Recorrido por Marco: tarjetas de eventos con filtros por categoría, prioridad y estado, y vista de territorios.',cap:'Vista de eventos con filtros y vista de territorios.'}]}
+  };
+  for(let i=1;i<=10;i++){const n=String(i).padStart(2,'0');G.dossieres.items.push({img:`dossier-es-${n}.jpg`,alt:`Página ${i} del dossier de puestos fijos en español.`,cap:`Puestos fijos (ES) · página ${i} de 10`});G.dossieres.items.push({img:`dossier-en-${n}.jpg`,alt:`Página ${i} del dossier Dedicated Desk en inglés.`,cap:`Dedicated Desk (EN) · page ${i} of 10`});}
+  for(let i=1;i<=5;i++)G.dossieres.items.push({img:`bonos-${i}.jpg`,alt:`Página ${i} del dossier de bonos de coworking.`,cap:`Bonos de coworking · página ${i} de 5`});
+  ['Portada', 'Sobre esta guía', 'Quiénes somos', 'Tono de voz', 'Tono de voz: palabras y líneas rojas', 'Nombre de la marca', 'Logos por sede', 'Logo: usos incorrectos', 'Logo: aplicación correcta', 'Logo: aplicación incorrecta', 'Logo: tamaño recomendado', 'Colores principales y secundarios', 'Colores: uso de cada tono', 'Colores por área de negocio', 'Tipografía'].forEach((c,i)=>G.brandbook.items.push({img:`brandbook-${String(i+1).padStart(2,'0')}.jpg`,alt:`Página del brandbook: ${c}.`,cap:`${c} · ${i+1} de 15`}));
+  ['01','02','03','04','05','08','13','16','19','23'].forEach((n,k)=>G.evento.items.push({img:`evento-${n}.jpg`,alt:`Diapositiva ${parseInt(n)} de la presentación del evento.`,cap:`Diapositiva ${parseInt(n)} de 23`}));
+
+  const dlg=$('#dlg'),stage=$('#dlg-stage');let cur=null,idx=0,opener=null;
+  const vid=(v)=>`<video controls playsinline preload="metadata" poster="${A}${v.poster}" aria-label="${v.label}"><source src="${A}${v.video}" type="video/mp4">Tu navegador no puede reproducir este vídeo.</video>`;
+  function render(){
+    const it=cur.items[idx];stage.querySelectorAll('video').forEach(v=>v.pause());
+    if(it.img)stage.innerHTML=`<img src="${A}${it.img}" alt="${it.alt}">`;
+    else if(it.video)stage.innerHTML=vid(it);
+    else if(it.scroll)stage.innerHTML=`<div class="scroller" tabindex="0" role="region" aria-label="Newsletter completa, desplazable"><img src="${A}${it.scroll}" alt="${it.alt}"></div>`;
+    else if(it.compare)stage.innerHTML=`<div class="compare">${it.compare.map(c=>`<figure>${vid(c)}<figcaption>${c.cap}</figcaption></figure>`).join('')}</div>`;
+    $('#dlg-cap').textContent=it.cap||'';
+    const many=cur.items.length>1;$('#dlg-cnt').textContent=many?`${idx+1} / ${cur.items.length}`:'';
+    $('#dlg-prev').hidden=$('#dlg-next').hidden=!many;
+    $('#dlg-prev').disabled=idx===0;$('#dlg-next').disabled=idx===cur.items.length-1;
+  }
+  function open(key,btn){cur=G[key];idx=0;opener=btn;$('#dlg-title').textContent=cur.t;$('#dlg-desc').textContent=cur.d;
+    const k=$('#dlg-kpis');if(cur.kpis){k.innerHTML=cur.kpis.map(([a,b])=>`<div><b>${a}</b>${b}</div>`).join('');k.hidden=false}else k.hidden=true;
+    render();dlg.showModal();$('#dlg-close').focus();}
+  function close(){stage.querySelectorAll('video').forEach(v=>v.pause());dlg.close();}
+  dlg.addEventListener('close',()=>{stage.innerHTML='';opener&&opener.focus()});
+  $$('[data-open]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.open,b)));
+  $('#dlg-close').onclick=close;
+  dlg.addEventListener('click',e=>{if(e.target===dlg)close()});
+  $('#dlg-prev').onclick=()=>{if(idx>0){idx--;render()}};
+  $('#dlg-next').onclick=()=>{if(idx<cur.items.length-1){idx++;render()}};
+  dlg.addEventListener('keydown',e=>{if(e.target.closest('.scroller'))return;if(e.key==='ArrowRight')$('#dlg-next').click();if(e.key==='ArrowLeft')$('#dlg-prev').click();});
+
+  /* ---------- Filtros de trabajos ---------- */
+  $$('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    const f=b.dataset.filter;let n=0;
+    $$('#works .work').forEach(w=>{const show=f==='all'||w.dataset.cat.split(' ').includes(f);w.hidden=!show;if(show)n++});
+    $('#filter-status').textContent=`Mostrando ${n} proyectos: ${b.textContent}.`;
+  }));
+
+  /* ---------- Tabla periódica ---------- */
+  const T=[['Cv','Canva','dis'],['Ci','Canva IA','dis'],['Mq','Maquetación','dis'],['If','Infografías','dis'],
+    ['Cc','CapCut','av'],['Cn','Canva vídeo','av'],['Pr','Premiere Pro','av'],['Ft','Fotografía','av'],['Sb','Subtitulado','av'],
+    ['Ig','Instagram','rs'],['Tk','TikTok','rs'],['Li','LinkedIn','rs'],['Fb','Facebook','rs'],['X','X','rs'],['Mb','Meta Business Suite','rs'],['Mt','Metricool','rs'],['Ht','Hootsuite','rs'],['Bf','Buffer','rs'],['Ga','Google Analytics 4','rs'],['Ls','Looker Studio','rs'],['Ad','Google Ads','rs'],['Ma','Meta Ads','rs'],
+    ['Wp','WordPress','web'],['El','Elementor','web'],['Wm','WPML','web'],['Od','Odoo Email Marketing','web'],['Hs','HubSpot','web'],['Gt','Tag Manager','web'],['Gf','Gravity Forms','web'],
+    ['Cl','Claude','ia'],['Cd','Claude Code','ia'],['Gp','ChatGPT','ia'],['Gm','Gemini','ia'],['Nb','NotebookLM','ia'],['Lv','Lovable','ia'],['Bp','Botpress','ia'],['N8','n8n','ia'],['Mk','Make','ia'],['Zp','Zapier','ia'],
+    ['Ex','Excel','of'],['Pp','PowerPoint','of']];
+  const FAM={dis:'Diseño',av:'Vídeo y foto',rs:'Redes',web:'Web y CRM',ia:'IA',of:'Ofimática'};
+  $('#ptable').innerHTML=T.map(([s,n,f])=>`<li class="el" data-f="${f}"><span class="s" aria-hidden="true">${s}</span><span class="nm">${n}<span class="sr-only">, ${FAM[f]}</span></span></li>`).join('');
+  $$('[data-fam]').forEach(b=>b.addEventListener('click',()=>{
+    $$('[data-fam]').forEach(x=>x.setAttribute('aria-pressed',x===b));const f=b.dataset.fam;
+    $$('#ptable .el').forEach(e=>e.classList.toggle('dim',f!=='all'&&e.dataset.f!==f));
+  }));
+
+  /* ---------- Tarjeta identificativa ---------- */
+  const badge=$('#badge');
+  badge.onclick=()=>{const on=!badge.classList.contains('flipped');badge.classList.toggle('flipped',on);badge.setAttribute('aria-pressed',on);
+    $('#badge-front').setAttribute('aria-hidden',on);$('#badge-back').setAttribute('aria-hidden',!on);};
+  badge.addEventListener('mouseenter',()=>{$('#badge-back').setAttribute('aria-hidden','false')});
+
+  /* ---------- Panel de accesibilidad ---------- */
+  const ab=$('#a11y-btn'),ap=$('#a11y-panel');
+  ab.onclick=()=>{const open=ap.hidden;ap.hidden=!open;ab.setAttribute('aria-expanded',open);if(open)ap.querySelector('button').focus()};
+  document.addEventListener('click',e=>{if(!ap.hidden&&!e.target.closest('.a11y-wrap')){ap.hidden=true;ab.setAttribute('aria-expanded','false')}});
+  ap.addEventListener('keydown',e=>{if(e.key==='Escape'){ap.hidden=true;ab.setAttribute('aria-expanded','false');ab.focus()}});
+
+  /* ---------- Línea de tiempo: se dibuja al hacer scroll ---------- */
+  const tl=$('#timeline');
+  function prog(){const r=tl.getBoundingClientRect(),vh=innerHeight;const p=Math.min(1,Math.max(0,(vh*.75-r.top)/r.height));tl.style.setProperty('--prog',(document.documentElement.classList.contains('reduce-motion')?100:Math.round(p*100))+'%')}
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){addEventListener('scroll',prog,{passive:true});prog();}
+
+  /* ---------- Accesibilidad: texto grande, sin animaciones ---------- */
+  const root=document.documentElement;
+  function toggle(btn,cls,key){const on=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',on);root.classList.toggle(cls,on);store.set(key,on?'1':'0');prog&&prog();}
+  const bt=$('#btn-text'),bm=$('#btn-motion');
+  bt.onclick=()=>toggle(bt,'big-text','pf-big');bm.onclick=()=>toggle(bm,'reduce-motion','pf-motion');
+  if(store.get('pf-big')==='1'){bt.setAttribute('aria-pressed','true');root.classList.add('big-text')}
+  if(store.get('pf-motion')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches){bm.setAttribute('aria-pressed','true');root.classList.add('reduce-motion')}
+
+  /* ---------- Escuchar (voz del navegador) ---------- */
+  const synth=window.speechSynthesis,listen=$('#btn-listen');
+  function textOf(sec){return [...sec.querySelectorAll('h1,h2,h3,p,li,.dt,.dd,.stat .n,.stat .l,.stat .c,.kind')].filter(el=>!el.closest('[aria-hidden="true"],[hidden]'))
+      .map(el=>el.textContent.trim()).filter(Boolean).join('. ').replace(/\s+/g,' ')}
+  function stop(){if(synth)synth.cancel();listen.setAttribute('aria-pressed','false')}
+  listen.onclick=()=>{if(!synth)return;if(listen.getAttribute('aria-pressed')==='true'){stop();return}
+    const secs=$$('main section');const sec=secs.find(s=>s.getBoundingClientRect().bottom>140)||secs[0];
+    const u=new SpeechSynthesisUtterance(textOf(sec));u.lang='es-ES';const v=synth.getVoices().find(v=>v.lang&&v.lang.startsWith('es'));if(v)u.voice=v;
+    u.onend=stop;listen.setAttribute('aria-pressed','true');synth.speak(u);};
+  if(!synth)listen.hidden=true;
+
+  /* ---------- Copiar ---------- */
+  $$('.copy').forEach(b=>b.onclick=()=>{const el=document.getElementById(b.dataset.copy);const t=el.textContent;
+    const ok=()=>{b.textContent='Copiado';setTimeout(()=>b.textContent='Copiar',1800)};
+    const fb=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Seleccionado';setTimeout(()=>b.textContent='Copiar',1800)};
+    try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}});
+})();
+</script>
+</body>
+</html>
